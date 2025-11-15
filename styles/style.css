@@ -1,0 +1,728 @@
+/* 1. CSS Değişkenleri (Renk Paleti) */
+:root {
+    --primary-color: #007BFF; /* Enerjik Mavi */
+    --secondary-color: #6c757d; /* İkincil Gri */
+    --light-bg: #F8F9FA;      /* Açık Zemin Rengi */
+    --dark-text: #343A40;       /* Koyu Metin Rengi */
+    --body-font: 'Roboto', sans-serif;
+    --heading-font: 'Poppins', sans-serif;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --border-radius: 8px;
+}
+
+/* 2. Genel Sıfırlamalar ve Temel Stiller */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--dark-text);
+    line-height: 1.6;
+    background: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.4rem; }
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3; /* Primary color dark */
+}
+
+ul {
+    list-style-type: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* 3. Yardımcı Sınıflar */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 4rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 2.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-link {
+    font-weight: 700;
+}
+
+/* 4. Temel Bileşenler (Planlanan) */
+
+/* Butonlar */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--heading-font);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    color: #fff;
+}
+
+/* Kartlar */
+.card {
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+    width: 100%;
+    height: 200px; /* Sabit yükseklik */
+    object-fit: cover; /* Görüntünün taşmasını engeller */
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    margin-bottom: 0.5rem;
+}
+
+.card-content p {
+    flex-grow: 1; /* Açıklamanın büyümesini sağlar */
+    margin-bottom: 1rem;
+}
+
+/* 5. Header ve Navbar */
+header {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.logo {
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    color: var(--dark-text);
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* 6. Ana Sayfa Bölümleri */
+
+/* Hero */
+.hero {
+    background-color: var(--primary-color);
+    /* Göz alıcı bir gradient */
+    background: linear-gradient(45deg, var(--primary-color), #0056b3);
+    color: #fff;
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+/* Öne Çıkan Programlar */
+.featured-programs {
+    background: var(--light-bg);
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+/* Neden FitAcademy? */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: center;
+}
+
+.feature-item .icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+/* Eğitmen Tanıtımı */
+.featured-instructors {
+    background: var(--light-bg);
+}
+
+.instructor-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.instructor-card {
+    text-align: center;
+    max-width: 300px;
+}
+
+.instructor-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.instructor-card h3 {
+    margin-bottom: 0.25rem;
+}
+
+.instructor-card span {
+    color: var(--primary-color);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Son Blog Yazıları */
+.recent-blog .card-container {
+    /* 3 sütunlu yapıyı kullanır */
+    grid-template-columns: repeat(2, 1fr); /* 2 sütunlu yapar */
+}
+
+.blog-date {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* 7. İç Sayfa Başlığı */
+.page-header {
+    background: var(--light-bg);
+    padding: 2.5rem 0;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.page-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+/* 8. Eğitmenler Sayfası Grid */
+.instructor-page-list {
+    padding-bottom: 4rem; /* Sadece padding-bottom, çünkü page-header'da padding-top var */
+}
+
+.instructor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.instructor-card-grid {
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.instructor-card-grid:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.instructor-grid-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: top center; /* Fotoğrafların üst kısmını (yüzü) koru */
+}
+
+.instructor-grid-content {
+    padding: 1.5rem;
+}
+
+.instructor-grid-content h3 {
+    margin-bottom: 0.25rem;
+}
+
+.instructor-grid-content span {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-family: var(--body-font); /* Başlık fontu değil, normal font */
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.instructor-card-link {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block; /* Grid yapısını korumak için */
+}
+
+/* 9. Blog Sayfası Listeleme */
+.blog-list-page {
+    padding-bottom: 4rem;
+}
+
+.blog-post-item {
+    display: flex;
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    margin-bottom: 2rem; /* Yazılar arasına boşluk */
+    transition: box-shadow 0.3s ease;
+}
+
+.blog-post-item:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.blog-item-img {
+    width: 300px;
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0; /* Resmin küçülmesini engelle */
+}
+
+.blog-item-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-item-content h3 {
+    margin-top: 0.5rem; /* Tarihten sonra biraz boşluk */
+    margin-bottom: 1rem;
+}
+
+.blog-item-content p {
+    flex-grow: 1; /* Paragrafın esneyip butonu aşağı itmesini sağlar */
+    margin-bottom: 1.5rem;
+}
+
+.blog-item-content .btn {
+    align-self: flex-start; /* Butonu sola dayalı ve en altta tutar */
+}
+
+/* 11. Detay Sayfası Stilleri */
+.detail-header {
+    background: #fff; /* Arkaplanı beyaz yapalım */
+    border-bottom: 1px solid #e0e0e0;
+    padding-top: 4rem; /* Navbar'dan daha fazla ayırmak için */
+}
+
+.detail-header h1 {
+    color: var(--primary-color); /* Başlığı renklendirelim */
+}
+
+.detail-page-content {
+    padding: 3rem 0;
+}
+
+.detail-layout {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr; /* 70% / 30% gibi bir oran */
+    gap: 2.5rem;
+}
+
+.detail-main-content h3.mt-2 {
+    margin-top: 2rem;
+}
+
+/* Basit Tablo Stili */
+.weekly-plan-table {
+    width: 100%;
+    border-collapse: collapse; /* Çizgileri birleştir */
+    margin-top: 1.5rem;
+    font-family: var(--body-font);
+}
+
+.weekly-plan-table th, .weekly-plan-table td {
+    border: 1px solid #ddd;
+    padding: 0.75rem 1rem;
+    text-align: left;
+}
+
+.weekly-plan-table th {
+    background-color: var(--light-bg);
+    font-family: var(--heading-font); /* Başlık fontu */
+    font-weight: 600;
+}
+
+.weekly-plan-table tbody tr:nth-child(odd) {
+    background-color: #fcfcfc; /* Satırları hafif renklendir */
+}
+
+/* Sağ Sidebar - Bilgi Kartı */
+.info-card {
+    background: var(--light-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    position: sticky; /* Sayfa kaydıkça sidebar'ın görünür kalması */
+    top: 120px; /* Navbar yüksekliği + biraz boşluk */
+}
+
+.info-card h3 {
+    margin-top: 0;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+
+.info-list li {
+    font-family: var(--body-font);
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 1rem;
+}
+
+.info-list li:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.info-list li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.info-list li a:hover {
+    text-decoration: underline;
+}
+
+/* 12. Blog Detay Sayfası Stilleri  */
+.blog-post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.blog-post-main-img {
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+}
+
+.blog-post-content h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.blog-post-content h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.blog-post-content p {
+    margin-bottom: 1.5rem;
+}
+
+.blog-post-content blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    font-family: var(--heading-font);
+    font-weight: 600;
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    border-left: 5px solid var(--primary-color);
+    background: var(--light-bg);
+    color: #333;
+}
+
+/* Sidebar - Diğer Yazılar Listesi */
+.simple-post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0; /* Buton yoksa alta biraz boşluk */
+}
+
+.simple-post-list li {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #ccc;
+}
+
+.simple-post-list li:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.simple-post-list li a {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
+    display: block; /* Linkin tüm satırı kaplaması */
+    margin-bottom: 0.25rem;
+}
+
+.simple-post-list li a:hover {
+    color: var(--primary-color);
+}
+
+.simple-post-list li span {
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+/* 13. Eğitmen Detay Sayfası Stilleri (Yeni Eklendi) */
+.instructor-detail-page {
+    padding-top: 3rem;
+}
+
+.instructor-detail-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: var(--body-font);
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.instructor-profile-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+}
+
+.instructor-profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin: -4.5rem auto 1rem auto; /* Kartın dışına taşır */
+    position: relative;
+    object-fit: cover;
+}
+
+.instructor-profile-card h3 {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0.25rem;
+}
+
+.instructor-profile-card span {
+    font-family: var(--body-font);
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.instructor-profile-card .info-list {
+    text-align: left;
+    margin-top: 1.5rem;
+}
+
+/* Basit Liste Stili (Uzmanlık Alanları için) */
+.simple-list {
+    font-family: var(--body-font);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 1.5rem 0;
+    padding-left: 20px;
+}
+
+.simple-list li {
+    margin-bottom: 0.75rem;
+}
+
+/* 14. Footer (Alt Bilgi) */
+footer {
+    background: var(--dark-text);
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.social-links {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.5rem;
+    font-family: var(--heading-font);
+    font-weight: 700;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* 15. Mobil Uyumluluk (Aşama 4'ten basit bir başlangıç) */
+@media (max-width: 992px) {
+    .card-container,
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .hero { padding: 4rem 0; }
+    
+    /* Menüyü (Navbar) mobil için düzenle - Basitçe alt alta */
+    .navbar .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1rem;
+    }
+    
+    .card-container,
+    .features-grid,
+    .recent-blog .card-container {
+        grid-template-columns: 1fr; /* Tek sütun */
+    }
+
+    .instructor-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
